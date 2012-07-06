@@ -27,13 +27,13 @@ may add a "time limit" on when to check again.
 
 #### Before installing the user script: ####
 
-![Before Installation](https://github.com/skratchdot/github-twitter-link.user.js/raw/master/images/before.png)
+![Before Installation](https://github.com/skratchdot/github-twitter-link.user.js/raw/master/images/before.png)  
 
 #### After installing the user script: ####
 
-**Twitter account exists:**
-![After Installation - Account exists](https://github.com/skratchdot/github-twitter-link.user.js/raw/master/images/after1.png)
+**Twitter account exists:**  
+![After Installation - Account exists](https://github.com/skratchdot/github-twitter-link.user.js/raw/master/images/after1.png)  
 
-**Twitter account doesn't exist:**
-![After Installation - Account doesn't exist](https://github.com/skratchdot/github-twitter-link.user.js/raw/master/images/after2.png)
+**Twitter account doesn't exist:**  
+![After Installation - Account doesn't exist](https://github.com/skratchdot/github-twitter-link.user.js/raw/master/images/after2.png)  
   
