@@ -8,7 +8,7 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
 // @updateURL      https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
-// @version        1.0
+// @version        1.1
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true, unparam: true, plusplus: true */
@@ -72,7 +72,7 @@ var userScript = function () {
 			if (data && data.length) {
 				for (i = 0; i < data.length; i++) {
 					currentUser = data[i];
-					if (currentUser.hasOwnProperty('screen_name') && currentUser.screen_name === username) {
+					if (currentUser.hasOwnProperty('screen_name') && currentUser.screen_name.toLowerCase() === username.toLowerCase()) {
 						twitterNames[username] = 1;
 					}
 				}
