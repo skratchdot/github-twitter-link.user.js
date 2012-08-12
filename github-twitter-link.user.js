@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           GitHub Twitter Link
+// @name           GitHub: Twitter Link
 // @namespace      https://github.com/skratchdot/github-twitter-link.user.js
 // @description    Adds a twitter link on Github profile pages if a corresponding user name exists at Twitter.
 // @include        https://github.com/*
@@ -8,7 +8,7 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
 // @updateURL      https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
-// @version        1.1
+// @version        1.2
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true, unparam: true, plusplus: true */
