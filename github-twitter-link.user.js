@@ -5,10 +5,11 @@
 // @include        https://github.com/*
 // @match          https://github.com/*
 // @run-at         document-end
+// @grant          none
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
 // @updateURL      https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
-// @version        1.2
+// @version        1.3
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true, unparam: true, plusplus: true */
@@ -49,12 +50,12 @@ var userScript = function () {
 
 	// Are we on a profile page?
 	SKRATCHDOT.isProfilePage = function () {
-		return jQuery('body').hasClass('page-profile');
+		return jQuery('body').hasClass('page-profile-next');
 	};
 
 	// Get current username from Github DOM
 	SKRATCHDOT.getUsername = function () {
-		return jQuery('.username').text();
+		return jQuery('.js-username').data('name');
 	};
 
 	// Handle user lookup. Will be called via a Twitter JSONP response.
@@ -94,14 +95,14 @@ var userScript = function () {
 	// Prepare our base Twitter HTML. We will fill out the display/user info later
 	initTwitterSection = function () {
 		var twitterSection = '<dl>' +
-			'<dt>Twitter</dt>' +
+			'<dt class="mini-icon">&#9443;</dt>' +
 			'<dd>' +
 			'<div id="skratchdot-twitter-link"></div>' +
-			'<div id="skratchdot-twitter-followers" style="margin-left:115px;margin-top:5px;"></div>' +
+			'<div id="skratchdot-twitter-followers" style="margin-top:5px;"></div>' +
 			'</dd>' +
 			'</dl>';
 
-		jQuery('.first.vcard').append(twitterSection);
+		jQuery('.first.vcard .details').append(twitterSection);
 	};
 
 	// Make sure our twitterNames object exists in localStorage, and return it
