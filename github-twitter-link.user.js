@@ -9,7 +9,7 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
 // @updateURL      https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
-// @version        1.3
+// @version        1.4
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true, unparam: true, plusplus: true */
@@ -20,6 +20,7 @@ var userScript = function () {
 	var SKRATCHDOT,
 		getTwitterLink,
 		getTwitterNames,
+		init,
 		initTwitterSection,
 		isCached,
 		jsonpTimeout = 2000,
@@ -50,7 +51,7 @@ var userScript = function () {
 
 	// Are we on a profile page?
 	SKRATCHDOT.isProfilePage = function () {
-		return jQuery('body').hasClass('page-profile-next');
+		return jQuery('body').hasClass('page-profile');
 	};
 
 	// Get current username from Github DOM
@@ -175,9 +176,7 @@ var userScript = function () {
 		});
 	};
 
-	// onDomReady : setup our page
-	jQuery(document).ready(function () {
-
+	init = function () {
 		// Only do something on profile pages
 		if (!SKRATCHDOT.isProfilePage()) {
 			return;
@@ -209,7 +208,16 @@ var userScript = function () {
 			// We need to use the REST API to figure out if the user exists at Twitter
 			performTwitterUserLookup();
 		}
+	};
 
+	// onDomReady : setup our page
+	jQuery(document).ready(function () {
+		jQuery(document).on('pjax:end', function (event) {
+			if (jQuery(event.relatedTarget).parents('li[data-tab="repo"]').length > 0) {
+				init();
+			}
+		});
+		init();
 	});
 
 	// Give access to SKRATCHDOT (for our JSONP responses)
