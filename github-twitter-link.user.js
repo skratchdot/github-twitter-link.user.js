@@ -9,7 +9,7 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
 // @updateURL      https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
-// @version        1.4
+// @version        1.5
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true, unparam: true, plusplus: true */
@@ -213,7 +213,7 @@ var userScript = function () {
 	// onDomReady : setup our page
 	jQuery(document).ready(function () {
 		jQuery(document).on('pjax:end', function (event) {
-			if (jQuery(event.relatedTarget).parents('li[data-tab="repo"]').length > 0) {
+			if (jQuery('body.page-profile').length > 0) {
 				init();
 			}
 		});
