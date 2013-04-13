@@ -9,12 +9,12 @@
 // @icon           http://skratchdot.com/favicon.ico
 // @downloadURL    https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
 // @updateURL      https://github.com/skratchdot/github-twitter-link.user.js/raw/master/github-twitter-link.user.js
-// @version        1.5
+// @version        1.6
 // ==/UserScript==
 /*global jQuery */
 /*jslint browser: true, unparam: true, plusplus: true */
 
-var userScript = function () {
+(function () {
 	'use strict';
 
 	var SKRATCHDOT,
@@ -223,9 +223,4 @@ var userScript = function () {
 	// Give access to SKRATCHDOT (for our JSONP responses)
 	window.SKRATCHDOT = SKRATCHDOT;
 
-};
-
-// Inject our userScript script
-var script = document.createElement('script');
-script.textContent = '(' + userScript.toString() + ')();';
-document.body.appendChild(script);
+}());
